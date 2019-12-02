@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import chroma from 'chroma-js';
 import styled, { ThemeProvider } from "styled-components/macro";
 import "./styles.css";
 import {
@@ -8,22 +7,7 @@ import {
   NormalAccordion
 } from "./components/Accordion";
 import AccordionItem from "./components/AccordionItem";
-
-const theme = {
-  backgroundColor: "#fff",
-  colorAccent: "#3978EF",
-  colorAccentDarken: chroma("#3978EF")
-    .darken(2)
-    .css(),
-  colorAccentDropShadow: chroma("#3978EF")
-    .darken(2)
-    .alpha(0.06)
-    .css(),
-  colorAccentInnerShadow: chroma("#3978EF")
-    .darken(2)
-    .alpha(0.2)
-    .css()
-};
+import theme from './theme';
 
 const StyledApp = styled.div`
   min-height: 100%;

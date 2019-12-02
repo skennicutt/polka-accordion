@@ -39,9 +39,14 @@ const StyledHeader = styled.div`
   padding: 0.8rem 1.4rem;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background: #fff;
   z-index: 2;
   position: relative;
+
+  &:hover {
+    background: #e0e0e0;
+    transition: background 0.2s ease-in-out;
+  }
 `;
 
 const StyledTitle = styled.h3`

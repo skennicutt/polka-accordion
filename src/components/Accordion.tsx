@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { ThemeProvider } from "styled-components/macro";
+import styled, { ThemeContext } from "styled-components/macro";
 import chroma from "chroma-js";
 
 interface IProps {
@@ -7,27 +7,11 @@ interface IProps {
   className?: string;
 }
 
-const theme = {
-  colorAccent: "#3978EF",
-  colorAccentDarken: chroma("#3978EF")
-    .darken(2)
-    .css(),
-  colorAccentDropShadow: chroma("#3978EF")
-    .darken(2)
-    .alpha(0.06)
-    .css(),
-  colorAccentInnerShadow: chroma("#3978EF")
-    .darken(2)
-    .alpha(0.2)
-    .css()
-};
-
 function Accordion(props: IProps) {
   const { className, children } = props;
+  React.useContext(ThemeContext);
   return (
-    <ThemeProvider theme={theme}>
       <ul className={className}>{children}</ul>
-    </ThemeProvider>
   );
 }
 
