@@ -1,12 +1,29 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./styles.css";
+import chroma from 'chroma-js';
 import styled, { ThemeProvider } from "styled-components/macro";
-import Accordion, {
+import "./styles.css";
+import {
   AccordionModal,
   NormalAccordion
 } from "./components/Accordion";
 import AccordionItem from "./components/AccordionItem";
+
+const theme = {
+  backgroundColor: "#fff",
+  colorAccent: "#3978EF",
+  colorAccentDarken: chroma("#3978EF")
+    .darken(2)
+    .css(),
+  colorAccentDropShadow: chroma("#3978EF")
+    .darken(2)
+    .alpha(0.06)
+    .css(),
+  colorAccentInnerShadow: chroma("#3978EF")
+    .darken(2)
+    .alpha(0.2)
+    .css()
+};
 
 const StyledApp = styled.div`
   min-height: 100%;
@@ -29,32 +46,34 @@ const FlexedNormalAccordion = styled(NormalAccordion)`
 
 const App: React.FC = () => {
   return (
-    <StyledApp>
-      <FlexedAccordionModal>
-        <AccordionItem
-          title="This is an accordion"
-          content="some content here"
-          expanded={false}
-        />
-        <AccordionItem
-          title="This is also an accordion"
-          content="some content here"
-          expanded={false}
-        />
-      </FlexedAccordionModal>
-      <FlexedNormalAccordion>
-        <AccordionItem
-          title="This is an accordion"
-          content="some content here"
-          expanded={false}
-        />
-        <AccordionItem
-          title="This is also an accordion"
-          content="some content here"
-          expanded={false}
-        />
-      </FlexedNormalAccordion>
-    </StyledApp>
+    <ThemeProvider theme={theme}>
+      <StyledApp>
+        <FlexedAccordionModal>
+          <AccordionItem
+            title="This is an accordion"
+            content="some content here"
+            expanded={false}
+          />
+          <AccordionItem
+            title="This is also an accordion"
+            content="some content here"
+            expanded={false}
+          />
+        </FlexedAccordionModal>
+        <FlexedNormalAccordion>
+          <AccordionItem
+            title="This is an accordion"
+            content="some content here"
+            expanded={false}
+          />
+          <AccordionItem
+            title="This is also an accordion"
+            content="some content here"
+            expanded={false}
+          />
+        </FlexedNormalAccordion>
+      </StyledApp>
+    </ThemeProvider>
   );
 };
 
